@@ -1,6 +1,7 @@
 package admin;
 
 import adminpanels.Admissions;
+
 import java.awt.EventQueue;
 
 
@@ -19,16 +20,7 @@ import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
-import javax.swing.JTextField;
 
-import javax.swing.JOptionPane;
-
-
-import java.awt.Dimension;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JLayeredPane;
-import javax.swing.JInternalFrame;
 
 public class AdminPage extends JFrame {
 	/*
@@ -50,6 +42,7 @@ public class AdminPage extends JFrame {
 	private JButton btnChangePassword;
 	private JButton btnLogout;
 	private JButton btnHome;
+	private JButton btnRecruitFaculty;
 	private Color onBtn=new Color(85,107,47);
 	private Color offBtn=new Color(75,0,130);
 	private JPanel panel;
@@ -163,6 +156,11 @@ public class AdminPage extends JFrame {
 		btnHome.setFocusable(false);
 		btnHome.setForeground(new Color(255, 255, 255));
 		btnHome.setBackground(new Color(85, 107, 47));
+		
+		btnRecruitFaculty = new JButton("Recruit Faculty");
+		btnRecruitFaculty.setFocusable(false);
+		btnRecruitFaculty.setForeground(new Color(255, 255, 255));
+		btnRecruitFaculty.setBackground(new Color(75, 0, 130));
 		GroupLayout gl_MenuPanel = new GroupLayout(MenuPanel);
 		gl_MenuPanel.setHorizontalGroup(
 			gl_MenuPanel.createParallelGroup(Alignment.LEADING)
@@ -178,8 +176,9 @@ public class AdminPage extends JFrame {
 						.addComponent(btnFeeSection)
 						.addComponent(btnOutTheResults)
 						.addComponent(btnChangePassword)
-						.addComponent(btnLogout)
-						.addComponent(btnHome))
+						.addComponent(btnHome)
+						.addComponent(btnRecruitFaculty)
+						.addComponent(btnLogout))
 					.addContainerGap(49, Short.MAX_VALUE))
 		);
 		gl_MenuPanel.setVerticalGroup(
@@ -206,8 +205,10 @@ public class AdminPage extends JFrame {
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(btnChangePassword)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(btnRecruitFaculty)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(btnLogout)
-					.addContainerGap(314, Short.MAX_VALUE))
+					.addContainerGap(265, Short.MAX_VALUE))
 		);
 		MenuPanel.setLayout(gl_MenuPanel);
 		
@@ -233,16 +234,11 @@ public class AdminPage extends JFrame {
 				.addGap(0, 639, Short.MAX_VALUE)
 		);
 		AdmissionPanel.setLayout(gl_AdmissionPanel);
-	
 		
-		
-		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(496, 5, 85, 21);
-		panel.add(btnNewButton);
-		
-		JLabel lblIAmPnael = new JLabel("i am pnael ");
-		lblIAmPnael.setBounds(153, 203, 255, 13);
+		JLabel lblIAmPnael = new JLabel("Welcome To Admin HomePage    !");
+		lblIAmPnael.setForeground(new Color(199, 21, 133));
+		lblIAmPnael.setFont(new Font("MS Reference Sans Serif", Font.BOLD, 23));
+		lblIAmPnael.setBounds(295, 227, 468, 92);
 		panel.add(lblIAmPnael);
 		
 	}
@@ -251,9 +247,9 @@ public class AdminPage extends JFrame {
       */
 	private void admissions_onClick(ActionEvent e) {
 		panel.setVisible(false);
-		
-        AdmissionPanel.setVisible(true);
-		
+	    AdmissionPanel.setVisible(true);
+	    
+		btnRecruitFaculty.setBackground(offBtn);
 	    btnViewProfile.setBackground(offBtn);
 		btnEditProfile.setBackground(offBtn);
 		btnManageStudents.setBackground(offBtn);
@@ -276,10 +272,9 @@ public class AdminPage extends JFrame {
 	 */
 	private void home_onClick() {
 		panel.setVisible(true);
-		
 		AdmissionPanel.setVisible(false);
 	  
-		
+		btnRecruitFaculty.setBackground(offBtn);
 	    btnViewProfile.setBackground(offBtn);
 		btnEditProfile.setBackground(offBtn);
 		btnManageStudents.setBackground(offBtn);

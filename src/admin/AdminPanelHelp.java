@@ -101,10 +101,10 @@ public class AdminPanelHelp {
 			 pstm.execute();
 			// pstm.close();
 			 
-			
+			JOptionPane.showMessageDialog(null,"Saved Successfully");
 
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, e);
+			JOptionPane.showMessageDialog(null, "Problem With connecting to server ");
 		} finally {
 
 			try {
