@@ -18,11 +18,14 @@ public class AdminPanelHelp {
 		//r.last();
 		
 		//System.out.print(RegNo);
+		//System.out.println(r.next());
+		//System.out.println(r.next());
 		if(!r.next()) {
 			RegNo= "9A1801";
 			//System.out.print("in r.wasNull");
 		}
 		else {
+			r.last();
 			RegNo=r.getString(1);
 	    int Sno=Integer.parseInt(Character.toString(RegNo.charAt(4))+Character.toString(RegNo.charAt(5)));
 		//System.out.println(Sno);

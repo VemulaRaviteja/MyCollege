@@ -73,12 +73,11 @@ public class Admissions extends JPanel {
 	private JLabel label_9;
 	private JLabel label_10;
 	private JLabel lblTheFiledsMarked;
-	public JButton btnAdmitNewstudent;
+	private JButton btnAdmitNewstudent;
 	
-	public JPanel panel;
 	
 	public Admissions() {
-	    panel = new JPanel();
+	    JPanel panel = new JPanel();
 	    panel.setLocation(0, 0);
 		panel.setSize(new Dimension(1048, 653));
 		

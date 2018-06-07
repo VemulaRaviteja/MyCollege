@@ -1,6 +1,7 @@
 package admin;
 
 import adminpanels.Admissions;
+import adminpanels.RecruitFaculty;
 
 import java.awt.EventQueue;
 
@@ -20,6 +21,7 @@ import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.GridLayout;
 
 
 public class AdminPage extends JFrame {
@@ -31,6 +33,7 @@ public class AdminPage extends JFrame {
 	private JPanel MenuPanel;
 	private JPanel DynamicPanel;
 	private JPanel AdmissionPanel;
+	private JPanel RecruitFacultyPanel;
 	private JButton btnViewProfile;
 	private JButton btnEditProfile;
 	private JButton btnManageStudents;
@@ -158,6 +161,11 @@ public class AdminPage extends JFrame {
 		btnHome.setBackground(new Color(85, 107, 47));
 		
 		btnRecruitFaculty = new JButton("Recruit Faculty");
+		btnRecruitFaculty.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				recruitfaculty_onClick();
+			}
+		});
 		btnRecruitFaculty.setFocusable(false);
 		btnRecruitFaculty.setForeground(new Color(255, 255, 255));
 		btnRecruitFaculty.setBackground(new Color(75, 0, 130));
@@ -219,11 +227,11 @@ public class AdminPage extends JFrame {
 		DynamicPanel.setLayout(new CardLayout(0, 0));
 		
 		panel = new JPanel();
-		DynamicPanel.add(panel, "name_514810198679590");
+		DynamicPanel.add(panel, "name_533622397709682");
 		panel.setLayout(null);
 		
 		AdmissionPanel =new Admissions();
-		DynamicPanel.add(AdmissionPanel, "name_513811460405692");
+		DynamicPanel.add(AdmissionPanel, "name_533622286472059");
 		GroupLayout gl_AdmissionPanel = new GroupLayout(AdmissionPanel);
 		gl_AdmissionPanel.setHorizontalGroup(
 			gl_AdmissionPanel.createParallelGroup(Alignment.LEADING)
@@ -234,6 +242,11 @@ public class AdminPage extends JFrame {
 				.addGap(0, 639, Short.MAX_VALUE)
 		);
 		AdmissionPanel.setLayout(gl_AdmissionPanel);
+		
+		RecruitFacultyPanel=new RecruitFaculty();
+		DynamicPanel.add(RecruitFacultyPanel);
+		
+		
 		
 		JLabel lblIAmPnael = new JLabel("Welcome To Admin HomePage    !");
 		lblIAmPnael.setForeground(new Color(199, 21, 133));
@@ -248,6 +261,7 @@ public class AdminPage extends JFrame {
 	private void admissions_onClick(ActionEvent e) {
 		panel.setVisible(false);
 	    AdmissionPanel.setVisible(true);
+	    RecruitFacultyPanel.setVisible(false);
 	    
 		btnRecruitFaculty.setBackground(offBtn);
 	    btnViewProfile.setBackground(offBtn);
@@ -273,6 +287,7 @@ public class AdminPage extends JFrame {
 	private void home_onClick() {
 		panel.setVisible(true);
 		AdmissionPanel.setVisible(false);
+		RecruitFacultyPanel.setVisible(false);
 	  
 		btnRecruitFaculty.setBackground(offBtn);
 	    btnViewProfile.setBackground(offBtn);
@@ -286,5 +301,23 @@ public class AdminPage extends JFrame {
 		btnChangePassword.setBackground(offBtn);
 		btnLogout.setBackground(offBtn);
 		btnHome.setBackground(onBtn);
+	}
+	private void recruitfaculty_onClick() {
+		panel.setVisible(false);
+		AdmissionPanel.setVisible(false);
+		RecruitFacultyPanel.setVisible(true);
+	  
+		btnRecruitFaculty.setBackground(onBtn);
+	    btnViewProfile.setBackground(offBtn);
+		btnEditProfile.setBackground(offBtn);
+		btnManageStudents.setBackground(offBtn);
+		btnManageFaculty.setBackground(offBtn);
+		btnAdmissions.setBackground(offBtn);
+		btnComplaintSection.setBackground(offBtn);
+		btnFeeSection.setBackground(offBtn);
+		btnOutTheResults.setBackground(offBtn);
+		btnChangePassword.setBackground(offBtn);
+		btnLogout.setBackground(offBtn);
+		btnHome.setBackground(offBtn);
 	}
 }
