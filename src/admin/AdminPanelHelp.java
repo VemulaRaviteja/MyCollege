@@ -18,11 +18,14 @@ public class AdminPanelHelp {
 		//r.last();
 		
 		//System.out.print(RegNo);
+		//System.out.println(r.next());
+		//System.out.println(r.next());
 		if(!r.next()) {
 			RegNo= "9A1801";
 			//System.out.print("in r.wasNull");
 		}
 		else {
+			r.last();
 			RegNo=r.getString(1);
 	    int Sno=Integer.parseInt(Character.toString(RegNo.charAt(4))+Character.toString(RegNo.charAt(5)));
 		//System.out.println(Sno);
@@ -101,10 +104,10 @@ public class AdminPanelHelp {
 			 pstm.execute();
 			// pstm.close();
 			 
-			
+			JOptionPane.showMessageDialog(null,"Saved Successfully");
 
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, e);
+			JOptionPane.showMessageDialog(null, "Problem With connecting to server ");
 		} finally {
 
 			try {
