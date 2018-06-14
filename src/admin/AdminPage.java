@@ -1,5 +1,6 @@
 package admin;
 
+import mycollegehome.Home;
 import adminpanels.Admissions;
 import adminpanels.ManageFaculty;
 import adminpanels.RecruitFaculty;
@@ -21,9 +22,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.FlowLayout;
+
 
 
 public class AdminPage extends JFrame {
@@ -80,7 +79,7 @@ public class AdminPage extends JFrame {
 	 */
 	public AdminPage() {
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(50, 50, 1300, 700);
 		setTitle("AdminPage");
 		contentPane = new JPanel();
@@ -162,7 +161,7 @@ public class AdminPage extends JFrame {
 		});
 		btnHome.setFocusable(false);
 		btnHome.setForeground(new Color(255, 255, 255));
-		btnHome.setBackground(new Color(85, 107, 47));
+		btnHome.setBackground(offBtn);
 		
 		btnRecruitFaculty = new JButton("Recruit Faculty");
 		btnRecruitFaculty.addActionListener(new ActionListener() {
@@ -255,25 +254,10 @@ public class AdminPage extends JFrame {
 	
 	
 	private void home_onClick() {
-		DynamicPanel.removeAll();
-		JPanel panel=new JPanel();
-		panel.add(new JLabel("Welcome to admin HomePage"));
-		DynamicPanel.add(panel);
-		DynamicPanel.revalidate();
-		DynamicPanel.repaint();
-	  
-		btnRecruitFaculty.setBackground(offBtn);
-	    btnViewProfile.setBackground(offBtn);
-		btnEditProfile.setBackground(offBtn);
-		btnManageStudents.setBackground(offBtn);
-		btnManageFaculty.setBackground(offBtn);
-		btnAdmissions.setBackground(offBtn);
-		btnComplaintSection.setBackground(offBtn);
-		btnFeeSection.setBackground(offBtn);
-		btnOutTheResults.setBackground(offBtn);
-		btnChangePassword.setBackground(offBtn);
-		btnLogout.setBackground(offBtn);
-		btnHome.setBackground(onBtn);
+		
+		dispose();
+		new Home().setVisible(true);;
+		
 	}
 	private void recruitfaculty_onClick() {
 		DynamicPanel.removeAll();
