@@ -1,4 +1,4 @@
-package adminpanels;
+ package adminpanels;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -47,10 +47,10 @@ public class Admissions extends JPanel {
 	private JLabel lblSectionValue;
 	private JLabel lblLoginValue;
 	private JLabel lblPasswordValue;
-	private JComboBox comboBox;
-	private JComboBox comboBox_1; 
+	private JComboBox comboBoxDept;
+	private JComboBox comboBoxGender; 
 	private JLabel lblHno;
-	private JComboBox comboBox_2;
+	private JComboBox comboBoxState;
     private JLabel lblRollno;
 	private JLabel lblFirstName;
 	private JTextField txtFirstName;
@@ -177,15 +177,15 @@ public class Admissions extends JPanel {
 		txtTown = new JTextField();
 		txtTown.setColumns(10);
 		
-		comboBox = new JComboBox();
-		comboBox.setFocusable(false);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Civil Engineering", "Electrical Engineering", "Electronics & communication engineering", "Mechanical Engineering", "Metallurgical & Materials Engineering", "Computer Science & enggineering", "Chemical Engineering", "BioTechnology"}));
-		comboBox.setSelectedIndex(1);
+		comboBoxDept = new JComboBox();
+		comboBoxDept.setFocusable(false);
+		comboBoxDept.setModel(new DefaultComboBoxModel(new String[] {"Civil Engineering", "Electrical Engineering", "Electronics & communication engineering", "Mechanical Engineering", "Metallurgical & Materials Engineering", "Computer Science & enggineering", "Chemical Engineering", "BioTechnology"}));
+		comboBoxDept.setSelectedIndex(1);
 		
-	    comboBox_1 = new JComboBox();
-		comboBox_1.setFocusable(false);
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Male", "Female", "Other"}));
-		comboBox_1.setSelectedIndex(0);
+	    comboBoxGender = new JComboBox();
+		comboBoxGender.setFocusable(false);
+		comboBoxGender.setModel(new DefaultComboBoxModel(new String[] {"Male", "Female", "Other"}));
+		comboBoxGender.setSelectedIndex(0);
 		
 		lblHno = new JLabel("H-No:-");
 		lblHno.setFont(new Font("Verdana", Font.BOLD, 14));
@@ -193,10 +193,10 @@ public class Admissions extends JPanel {
 		txtDistrict = new JTextField();
 		txtDistrict.setColumns(10);
 		
-		comboBox_2 = new JComboBox();
-		comboBox_2.setMaximumRowCount(6);
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Andaman and Nicobar Islands union territory", "Andhra Pradesh","Arunachal Pradesh","Assam", "Bihar","Chandigarh union territory", "Chhattisgarh", "Dadra and Nagar Haveli union territory", "Daman and Diu union territory", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep union territory", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Puducherry union territory", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"}));
-		comboBox_2.setSelectedIndex(30);
+		comboBoxState = new JComboBox();
+		comboBoxState.setMaximumRowCount(6);
+		comboBoxState.setModel(new DefaultComboBoxModel(new String[] {"Andaman and Nicobar Islands union territory", "Andhra Pradesh","Arunachal Pradesh","Assam", "Bihar","Chandigarh union territory", "Chhattisgarh", "Dadra and Nagar Haveli union territory", "Daman and Diu union territory", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep union territory", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Puducherry union territory", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"}));
+		comboBoxState.setSelectedIndex(30);
 		
 		btnSaveRecord = new JButton("Save Record");
 		btnSaveRecord.addActionListener(new ActionListener() {
@@ -315,13 +315,13 @@ public class Admissions extends JPanel {
 								.addGroup(gl_AdmissionPanel.createSequentialGroup()
 									.addComponent(lblBranch, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
 									.addGap(18)
-									.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 252, GroupLayout.PREFERRED_SIZE)
+									.addComponent(comboBoxDept, GroupLayout.PREFERRED_SIZE, 252, GroupLayout.PREFERRED_SIZE)
 									.addGap(6)
 									.addComponent(label_8, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_AdmissionPanel.createSequentialGroup()
 									.addComponent(lblGender, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
 									.addGap(18)
-									.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)
+									.addComponent(comboBoxGender, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)
 									.addGap(6)
 									.addComponent(label_9, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)))
 							.addGap(202)
@@ -368,7 +368,7 @@ public class Admissions extends JPanel {
 								.addGroup(gl_AdmissionPanel.createSequentialGroup()
 									.addComponent(lblState, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
 									.addGap(18)
-									.addComponent(comboBox_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addComponent(comboBoxState, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addComponent(label_10, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_AdmissionPanel.createSequentialGroup()
@@ -446,14 +446,14 @@ public class Admissions extends JPanel {
 									.addComponent(lblBtech))))
 						.addGroup(gl_AdmissionPanel.createParallelGroup(Alignment.BASELINE)
 							.addComponent(lblState)
-							.addComponent(comboBox_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(comboBoxState, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addComponent(label_10)))
 					.addGap(18)
 					.addGroup(gl_AdmissionPanel.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblBranch)
 						.addGroup(gl_AdmissionPanel.createSequentialGroup()
 							.addGap(2)
-							.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addComponent(comboBoxDept, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 						.addComponent(label_8)
 						.addGroup(gl_AdmissionPanel.createSequentialGroup()
 							.addGap(7)
@@ -504,7 +504,7 @@ public class Admissions extends JPanel {
 						.addComponent(lblGender)
 						.addGroup(gl_AdmissionPanel.createSequentialGroup()
 							.addGap(2)
-							.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addComponent(comboBoxGender, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_AdmissionPanel.createParallelGroup(Alignment.BASELINE)
 							.addComponent(label_9)
 							.addComponent(lblTheFiledsMarked)))
@@ -529,9 +529,9 @@ public class Admissions extends JPanel {
 		lblLoginValue.setText("9B1816");
 		lblPasswordValue.setText("9B1816");
 		lblSectionValue.setText("A");
-		comboBox.setSelectedIndex(1);
-		comboBox_1.setSelectedIndex(0);
-		comboBox_2.setSelectedIndex(30);
+		comboBoxDept.setSelectedIndex(1);
+		comboBoxGender.setSelectedIndex(0);
+		comboBoxState.setSelectedIndex(30);
 		txtFirstName.setText("");
 		txtLastName.setText("");
 		txtFatherName.setText("");
@@ -553,16 +553,16 @@ public class Admissions extends JPanel {
 	    dbvalues[4]=txtFatherName.getText();
 	    dbvalues[5]=txtMotherName.getText();
 	    dbvalues[6]="B-Tech";
-	    dbvalues[7]=Integer.toString(comboBox.getSelectedIndex()+1);
+	    dbvalues[7]=Integer.toString(comboBoxDept.getSelectedIndex()+1);
 	    dbvalues[8]=txtHouseNo.getText();
 	    dbvalues[9]=txtDistrict.getText();
 	    dbvalues[10]=txtTown.getText();
-	    dbvalues[11]=comboBox_2.getSelectedItem().toString();
+	    dbvalues[11]=comboBoxState.getSelectedItem().toString();
 	    dbvalues[12]=lblSectionValue.getText();
 	    dbvalues[13]=txtEmail.getText();
 	    dbvalues[14]=txtMobileNo.getText();
 	    dbvalues[15]=txtBloodGroup.getText();
-	    dbvalues[16]=comboBox_1.getSelectedItem().toString();
+	    dbvalues[16]=comboBoxGender.getSelectedItem().toString();
 	    dbvalues[17]=lblLoginValue.getText();
 	    dbvalues[18]=lblPasswordValue.getText();
 	   // System.out.print(dbvalues[8]);
@@ -573,6 +573,18 @@ public class Admissions extends JPanel {
 	    else {
 	    	AdminPanelHelp.insert_student(dbvalues);
 	    }
+	    entryfeedetails();
+	}
+	private void entryfeedetails() {
+		String value[]=new String[6];
+		value[0]=lblRollNoValue.getText();
+		value[1]=Integer.toString(comboBoxDept.getSelectedIndex()+1);
+		value[2]="1";
+		value[3]="0";
+		String fee=AdminPanelHelp.getfee("1");
+		value[4]=fee;
+		value[5]=fee;
+		AdminPanelHelp.insertintofee(value);
 	}
 
 }
