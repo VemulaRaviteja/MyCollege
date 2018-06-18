@@ -2,8 +2,13 @@ package admin;
 
 import mycollegehome.Home;
 import adminpanels.Admissions;
+import adminpanels.ChangePassword;
+import adminpanels.EditProfile;
+import adminpanels.FeeSection;
 import adminpanels.ManageFaculty;
+import adminpanels.OuttheResults;
 import adminpanels.RecruitFaculty;
+import adminpanels.ViewProfile;
 
 import java.awt.EventQueue;
 
@@ -22,6 +27,8 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+import java.awt.Font;
 
 
 
@@ -94,11 +101,21 @@ public class AdminPage extends JFrame {
 		contentPane.add(MenuPanel);
 		
 		btnViewProfile = new JButton("View Profile");
+		btnViewProfile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				viewprofile_onClick();
+			}
+		});
 		btnViewProfile.setFocusable(false);
 		btnViewProfile.setForeground(new Color(255, 255, 255));
 		btnViewProfile.setBackground(new Color(75, 0, 130));
 		
 		btnEditProfile = new JButton("Edit Profile");
+		btnEditProfile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				editprofile_onClick();
+			}
+		});
 		btnEditProfile.setFocusable(false);
 		btnEditProfile.setForeground(new Color(255, 255, 255));
 		btnEditProfile.setBackground(new Color(75, 0, 130));
@@ -134,16 +151,31 @@ public class AdminPage extends JFrame {
 		btnComplaintSection.setBackground(new Color(75, 0, 130));
 		
 		btnFeeSection = new JButton("Fee Section");
+		btnFeeSection.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				feesection_onClick();
+			}
+		});
 		btnFeeSection.setFocusable(false);
 		btnFeeSection.setForeground(new Color(255, 255, 255));
 		btnFeeSection.setBackground(new Color(75, 0, 130));
 		
 		btnOutTheResults = new JButton("Out the Results");
+		btnOutTheResults.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				outtheresults_onClick();
+			}
+		});
 		btnOutTheResults.setForeground(new Color(255, 255, 255));
 		btnOutTheResults.setBackground(new Color(75, 0, 130));
 		btnOutTheResults.setFocusable(false);
 		
 		btnChangePassword = new JButton("Change Password");
+		btnChangePassword.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				changepassword_onClick();
+			}
+		});
 		btnChangePassword.setFocusable(false);
 		btnChangePassword.setBackground(new Color(75, 0, 130));
 		btnChangePassword.setForeground(new Color(255, 255, 255));
@@ -229,6 +261,14 @@ public class AdminPage extends JFrame {
 		contentPane.add(DynamicPanel);
 		DynamicPanel.setLayout(new CardLayout(0, 0));
 		
+		JTextArea txtrWelcomAdmin = new JTextArea();
+		txtrWelcomAdmin.setEditable(false);
+		txtrWelcomAdmin.setFont(new Font("MV Boli", Font.BOLD, 32));
+		txtrWelcomAdmin.setForeground(new Color(72, 61, 139));
+		txtrWelcomAdmin.setText("                    Welcome Admin!\r\n\r\n\r\n        Continue Working on this page by Choosing \r\n         any one of the options provided on the left. ");
+		txtrWelcomAdmin.setBackground(new Color(220, 220, 220));
+		DynamicPanel.add(txtrWelcomAdmin, "name_1315637236713919");
+		
 	}
      
 	private void admissions_onClick(ActionEvent e) {
@@ -294,6 +334,106 @@ public class AdminPage extends JFrame {
 		btnAdmissions.setBackground(offBtn);
 		btnComplaintSection.setBackground(offBtn);
 		btnFeeSection.setBackground(offBtn);
+		btnOutTheResults.setBackground(offBtn);
+		btnChangePassword.setBackground(offBtn);
+		btnLogout.setBackground(offBtn);
+		btnHome.setBackground(offBtn);
+	}
+	private void viewprofile_onClick() {
+		DynamicPanel.removeAll();
+		JPanel panel=new ViewProfile();
+		DynamicPanel.add(panel);
+		DynamicPanel.revalidate();
+		DynamicPanel.repaint();
+	  
+		btnRecruitFaculty.setBackground(offBtn);
+	    btnViewProfile.setBackground(onBtn);
+		btnEditProfile.setBackground(offBtn);
+		btnManageStudents.setBackground(offBtn);
+		btnManageFaculty.setBackground(offBtn);
+		btnAdmissions.setBackground(offBtn);
+		btnComplaintSection.setBackground(offBtn);
+		btnFeeSection.setBackground(offBtn);
+		btnOutTheResults.setBackground(offBtn);
+		btnChangePassword.setBackground(offBtn);
+		btnLogout.setBackground(offBtn);
+		btnHome.setBackground(offBtn);
+	}
+	private void editprofile_onClick() {
+		DynamicPanel.removeAll();
+		JPanel panel=new EditProfile();
+		DynamicPanel.add(panel);
+		DynamicPanel.revalidate();
+		DynamicPanel.repaint();
+	  
+		btnRecruitFaculty.setBackground(offBtn);
+	    btnViewProfile.setBackground(offBtn);
+		btnEditProfile.setBackground(onBtn);
+		btnManageStudents.setBackground(offBtn);
+		btnManageFaculty.setBackground(offBtn);
+		btnAdmissions.setBackground(offBtn);
+		btnComplaintSection.setBackground(offBtn);
+		btnFeeSection.setBackground(offBtn);
+		btnOutTheResults.setBackground(offBtn);
+		btnChangePassword.setBackground(offBtn);
+		btnLogout.setBackground(offBtn);
+		btnHome.setBackground(offBtn);
+	}
+	private void changepassword_onClick() {
+		DynamicPanel.removeAll();
+		JPanel panel=new ChangePassword();
+		DynamicPanel.add(panel);
+		DynamicPanel.revalidate();
+		DynamicPanel.repaint();
+	  
+		btnRecruitFaculty.setBackground(offBtn);
+	    btnViewProfile.setBackground(offBtn);
+		btnEditProfile.setBackground(offBtn);
+		btnManageStudents.setBackground(offBtn);
+		btnManageFaculty.setBackground(offBtn);
+		btnAdmissions.setBackground(offBtn);
+		btnComplaintSection.setBackground(offBtn);
+		btnFeeSection.setBackground(offBtn);
+		btnOutTheResults.setBackground(offBtn);
+		btnChangePassword.setBackground(onBtn);
+		btnLogout.setBackground(offBtn);
+		btnHome.setBackground(offBtn);
+	}
+	private void outtheresults_onClick() {
+		DynamicPanel.removeAll();
+		JPanel panel=new OuttheResults();
+		DynamicPanel.add(panel);
+		DynamicPanel.revalidate();
+		DynamicPanel.repaint();
+	  
+		btnRecruitFaculty.setBackground(offBtn);
+	    btnViewProfile.setBackground(offBtn);
+		btnEditProfile.setBackground(offBtn);
+		btnManageStudents.setBackground(offBtn);
+		btnManageFaculty.setBackground(offBtn);
+		btnAdmissions.setBackground(offBtn);
+		btnComplaintSection.setBackground(offBtn);
+		btnFeeSection.setBackground(offBtn);
+		btnOutTheResults.setBackground(onBtn);
+		btnChangePassword.setBackground(offBtn);
+		btnLogout.setBackground(offBtn);
+		btnHome.setBackground(offBtn);
+	}
+	private void feesection_onClick() {
+		DynamicPanel.removeAll();
+		JPanel panel=new FeeSection();
+		DynamicPanel.add(panel);
+		DynamicPanel.revalidate();
+		DynamicPanel.repaint();
+	  
+		btnRecruitFaculty.setBackground(offBtn);
+	    btnViewProfile.setBackground(offBtn);
+		btnEditProfile.setBackground(offBtn);
+		btnManageStudents.setBackground(offBtn);
+		btnManageFaculty.setBackground(offBtn);
+		btnAdmissions.setBackground(offBtn);
+		btnComplaintSection.setBackground(offBtn);
+		btnFeeSection.setBackground(onBtn);
 		btnOutTheResults.setBackground(offBtn);
 		btnChangePassword.setBackground(offBtn);
 		btnLogout.setBackground(offBtn);

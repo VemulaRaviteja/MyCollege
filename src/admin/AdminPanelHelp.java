@@ -119,5 +119,52 @@ public class AdminPanelHelp {
 			}
 		}
 	}
+	public static void insertintofee(String[] values) {
+		Connection con=DBConnection.getConnection("201819");
+		//ResultSet r=null;
+		PreparedStatement pstm=null;
+		String sql;
+		try {
+			sql="insert into nitw201819.feedetails (rollno,department,year,feepaid,feebalance,feetotal) values (?,?"
+					+ ",?,?,?,?)";
+			pstm=con.prepareStatement(sql);
+			pstm.setString(1,values[0]);
+			pstm.setInt(2,Integer.parseInt(values[1]));
+			pstm.setInt(3,Integer.parseInt(values[2]));
+			pstm.setString(4,values[3]);
+			pstm.setString(5,values[4]);
+			pstm.setString(6,values[5]);
+			pstm.execute();
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(null,e.getMessage());
+		}finally {
+
+			try {
+				
+				pstm.close();
+
+			} catch (Exception e) {
+
+			}
+		}
+	}
+	public static String getfee(String year) {
+		Connection con=DBConnection.getConnection("201819");
+		ResultSet r=null;
+		PreparedStatement pstm=null;
+		String sql;
+		String ans="Not Available";
+		try {
+			sql="select fee from nitw201819.feestructure where year = '"+year+"'";
+			pstm=con.prepareStatement(sql);
+			r=pstm.executeQuery();
+			if(r.next()) {
+				ans=r.getString(1);
+			}
+		}catch(Exception e) {
+			
+		}
+		return ans;
+	}
 
 }
